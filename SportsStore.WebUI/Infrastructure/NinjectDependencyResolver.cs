@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
+using SportsStore.Domain.Abstract;
+using SportsStore.Domain.Concrete;
 
 namespace SportsStore.WebUI.Infrastructure
 {
@@ -19,7 +21,7 @@ namespace SportsStore.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            //put bindings here
+            kernel.Bind<IProductRepository>().To<EFProductRepository>();
         }
 
         public object GetService(Type serviceType)
